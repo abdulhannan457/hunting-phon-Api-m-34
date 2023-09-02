@@ -65,8 +65,30 @@ function loadPhone(hannan){
 function dataPhone(phones){
     console.log(phones)
 const phoneContainer = document.getElementById('phone-container');
+
 // নিচের লাইনটা হলো প্রতেকবার সার্চ দেয়ার পরে phone-container এই div টাকে খালি করার জন্য 
 phoneContainer.textContent = '';
+
+// if else condition add করব কারন কার্ড যদি ১২ টার বেশি হয় তাহলে show all button দেখাবে অন্যথায় এই বাটনটা hidden থাকবে ।
+// const showAllContainer = document.getElementById('show-all-container');
+// if(phones.length > 12){
+//     showAllContainer.classList.remove('hidden')
+// }
+// else{
+//     showAllContainer.classList.add('hidden')
+// }
+
+const showAllContainer = document.getElementById('show-all-container');
+if(phones.length > 12){
+showAllContainer.classList.remove('hidden')
+}
+else{
+    showAllContainer.classList.add('hidden')
+}
+
+// সবগুলো কার্ড না শো করে শুধুমাত্র ৫টা অথব ১০ কার্ড শো করতে চাইলে 
+ phones = phones.slice(0,12);
+
     for(const phone of phones){
             console.log(phone)
       

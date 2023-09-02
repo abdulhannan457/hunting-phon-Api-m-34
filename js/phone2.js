@@ -70,13 +70,7 @@ const phoneContainer = document.getElementById('phone-container');
 phoneContainer.textContent = '';
 
 // if else condition add করব কারন কার্ড যদি ১২ টার বেশি হয় তাহলে show all button দেখাবে অন্যথায় এই বাটনটা hidden থাকবে ।
-// const showAllContainer = document.getElementById('show-all-container');
-// if(phones.length > 12){
-//     showAllContainer.classList.remove('hidden')
-// }
-// else{
-//     showAllContainer.classList.add('hidden')
-// }
+
 
 const showAllContainer = document.getElementById('show-all-container');
 if(phones.length > 12){
@@ -107,10 +101,11 @@ else{
       </div>
             `
             phoneContainer.appendChild(postDiv)
-
+            toggleLoadingSpinner(false)
            }}
 
            function buttonHandler(){
+            toggleLoadingSpinner(true)
            const searchField = document.getElementById('search-field')
            const searchText = searchField.value;
            console.log(searchText)
@@ -120,10 +115,23 @@ else{
 
 // -----------------------------------------------------------------operation 2
 function searchHandle(){
+    toggleLoadingSpinner(true)
     const searchField = document.getElementById('search-field2');
     const searchText = searchField.value;
     loadPhone(searchText)
 }
+
+const toggleLoadingSpinner = (isLoading) =>{
+   const LoadingSpinner = document.getElementById('loading-spinner');
+   if(isLoading){
+    LoadingSpinner.classList.remove('hidden')
+   }
+   else{
+    LoadingSpinner.classList.add('hidden')
+   }
+}
+
+
 
 
 

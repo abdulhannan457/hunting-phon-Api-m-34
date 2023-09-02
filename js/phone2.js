@@ -96,7 +96,12 @@ phoneContainer.textContent = '';
            loadPhone(searchText)
            }
 
-
+// -----------------------------------------------------------------operation 2
+function searchHandle(){
+    const searchField = document.getElementById('search-field2');
+    const searchText = searchField.value;
+    loadPhone(searchText)
+}
 
 
 
